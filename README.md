@@ -1,4 +1,4 @@
-🌍 WeatherWorld; https://tanutechlab.github.io/Global-Weather-forecast/
+🌍 Global-Weather-forecast; https://tanutechlab.github.io/Global-Weather-forecast/
 
 A responsive weather forecasting website that lets users explore real-time weather conditions and a 7-day forecast for cities 
 around the world. Built using HTML, CSS, and JavaScript.
