@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Global weather forecast with live weather and a 7-day forecast for cities worldwide.">
+  <title>Global Weather Forecast</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://api.open-meteo.com">
+  <link rel="preconnect" href="https://geocoding-api.open-meteo.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand-icon">🌤️</span>
+        <span>Weather<span class="brand-accent">World</span></span>
+      </a>
+      <div class="top-actions">
+        <button id="unitBtn" class="unit-btn" aria-label="Change temperature unit">°C / °F</button>
+        <button id="locationBtn" class="location-btn">◎ My Location</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">YOUR WORLD, YOUR WEATHER</p>
+        <h1>Forecast for <span>anywhere.</span></h1>
+        <p class="subtitle">Explore live weather and forecasts for cities around the globe.</p>
+
+        <form id="searchForm" class="search-form">
+          <span class="search-icon">⌕</span>
+          <input id="cityInput" type="search"
+            placeholder="Search any city in the world..."
+            aria-label="Search city" autocomplete="off" required>
+          <button type="submit" id="searchBtn">Search →</button>
+        </form>
+        <p id="status" class="status" role="status">Loading weather...</p>
+      </section>
+
+      <section id="weatherContent" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CURRENT CONDITIONS</p>
+            <h2 id="placeName">City, Country</h2>
+            <p id="localTime" class="muted"></p>
+          </div>
+          <span class="live-badge"><span></span> LIVE WEATHER</span>
+        </div>
+
+        <section class="current-card">
+          <div class="current-main">
+            <div>
+              <p class="muted">CURRENT TEMPERATURE</p>
+              <div class="temperature" id="temperature">--°</div>
+              <h3 id="condition">Loading...</h3>
+              <p id="feelsLike" class="muted">Feels like --°</p>
+            </div>
+            <div id="mainIcon" class="weather-icon" aria-hidden="true">🌤️</div>
+          </div>
+
+          <div class="weather-stats">
+            <div class="stat">
+              <span class="stat-icon">💧</span>
+              <div><p>Humidity</p><strong id="humidity">--%</strong></div>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">💨</span>
+              <div><p>Wind speed</p><strong id="wind">-- km/h</strong></div>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">🌧️</span>
+              <div><p>Rain chance</p><strong id="rain">--%</strong></div>
+            </div>
+            <div class="stat">
+              <span class="stat-icon">☀️</span>
+              <div><p>UV index</p><strong id="uv">--</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="forecast-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PLAN AHEAD</p>
+              <h2>7-Day Forecast</h2>
+            </div>
+          </div>
+          <div id="forecastGrid" class="forecast-grid"></div>
+        </section>
+
+        <section class="world-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">EXPLORE THE PLANET</p>
+              <h2>Popular world cities</h2>
+            </div>
+          </div>
+          <div id="worldGrid" class="world-grid"></div>
+        </section>
+      </section>
+
+      <footer>
+        <p>Made with ☁️ for the whole world</p>
+        <p>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
